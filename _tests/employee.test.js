@@ -1,20 +1,22 @@
 const Employee = require("../lib/employee");
 
 describe("Employee", () => {
-  it("should return the name and email of the employee", () => {
+  it("should return the name, email, and ID of the employee", () => {
     // Arrange
 
     const name = "Andre";
     const email = "andre@andre.com";
+    const id = "451";
 
     // Act
 
-    const obj = new Employee(name, email);
+    const obj = new Employee(name, email, id);
 
     // Assert
 
     expect(obj.name).toEqual(name);
     expect(obj.email).toEqual(email);
+    expect(obj.id).toEqual(id);
   });
 
   // Exception test
