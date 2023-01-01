@@ -36,5 +36,5 @@ const questions = [
 //   console.log(newEmp);
 // }
 
-const Andre = new Employee("Andrew", "wires@gmail.com", 45);
+const Andre = new Manager("Andrew", "wires@gmail.com", 45, 7);
 console.log(Andre);
