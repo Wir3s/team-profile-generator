@@ -22,7 +22,7 @@ describe("Employee", () => {
   // Exception test
   it("should throw an error if email address does not contain '@'", () => {
     // Arrange
-    const cb = () => new Employee("Andre", "andregmail.com");
+    const cb = () => new Employee("Andre", "andregmail.com", "44");
     const err = new Error("Not a valid email address");
 
     // Assert
