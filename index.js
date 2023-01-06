@@ -111,6 +111,8 @@ inquirer.prompt(managerQuestions).then((data) => {
   }
 });
 
+// Function to map/filer responses, and determine roles?
+
 // inquirer.prompt(managerQuestions).then((data) => createManager(data));
 
 // Generate a Manager

@@ -1,5 +1,7 @@
 function generateHtml(data) {
-  console.log(data);
+  console.log(data); 
+}
+  module.exports = data => {
   return `<!DOCTYPE html>
 <html lang="en">
 <head>
@@ -72,4 +74,3 @@ function generateHtml(data) {
 
 }
 
-module.exports = generateHtml;
