@@ -127,7 +127,7 @@ function mainMenu() {
     switch (data.menu) {
       case "Done":
         console.log(data);
-        writeToFile(data);
+        writeToFile(team);
         break;
       case "Engineer":
         createEngineer();
@@ -138,8 +138,6 @@ function mainMenu() {
     }
   });
 }
-
-createManager();
 
 // Generate an Engineer
 
@@ -170,3 +168,5 @@ function writeToFile(data) {
     err ? console.log(err) : console.log("Success!")
   );
 }
+
+createManager();

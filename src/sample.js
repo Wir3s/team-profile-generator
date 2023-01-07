@@ -1,17 +1,17 @@
 function generateHtml(data) {
   console.log(data);
-  // const findRole = data.foreach(getRole());
-  // switch (findRole) {
-  //   case "Manager":
-  //     generateManager(data);
-  //     break;
-  //   case "Engineer":
-  //     generateEngineer(data);
-  //     break;
-  //   case "Intern":
-  //     generateIntern(data);
-  //     break;
-  // }
+  const findRole = data.filter(data.getRole());
+  switch (findRole) {
+    case "Manager":
+      generateManager(data);
+      break;
+    case "Engineer":
+      generateEngineer(data);
+      break;
+    case "Intern":
+      generateIntern(data);
+      break;
+  }
 
   function generateManager(data) {
     return `<div class="card" style="width: 18rem;">
