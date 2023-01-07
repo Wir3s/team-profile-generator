@@ -10,7 +10,9 @@ console.log(Manager);
 
 const team = [];
 
-// Array of questions for user input
+// Arrays of questions for user input
+
+// Questions to for Manager
 const managerQuestions = [
   {
     type: "input",
@@ -32,6 +34,9 @@ const managerQuestions = [
     name: "office",
     message: "What is their office number?",
   },
+];
+// Questions for main menu
+const menuQuestions = [
   {
     type: "list",
     name: "menu",
@@ -39,7 +44,7 @@ const managerQuestions = [
     message: "Do you have another team member to add?",
   },
 ];
-
+// Questions to create Engineer
 const engineerQuestions = [
   {
     type: "input",
@@ -68,7 +73,7 @@ const engineerQuestions = [
     message: "Do you have another team member to add?",
   },
 ];
-
+// Questions to create Intern
 const internQuestions = [
   {
     type: "input",
@@ -98,55 +103,66 @@ const internQuestions = [
   },
 ];
 
-inquirer.prompt(managerQuestions).then((data) => {
-  if (data.menu === "Done") {
-    console.log(data);
-    createManager(data);
-  }
-  if (data.menu === "Engineer") {
-    inquirer.prompt(engineerQuestions);
-  }
-  if (data.menu === "Intern") {
-    inquirer.prompt(internQuestions);
-  }
-});
-
 // Function to map/filer responses, and determine roles?
 
-// inquirer.prompt(managerQuestions).then((data) => createManager(data));
-
 // Generate a Manager
-function createManager(data) {
-  console.log(data);
-  const teamManager = new Manager(data.name, data.email, data.id, data.office);
-  console.log(teamManager);
-  //writeToFile(teamManager);
-  team.push(teamManager);
-  console.log(team);
+function createManager() {
+  inquirer.prompt(managerQuestions).then((data) => {
+    const teamManager = new Manager(
+      data.name,
+      data.email,
+      data.id,
+      data.office
+    );
+    console.log(teamManager);
+    team.push(teamManager);
+    console.log(team);
+    mainMenu();
+  });
 }
+
+function mainMenu() {
+  inquirer.prompt(menuQuestions).then((data) => {
+    if (data.menu === "Done") {
+      console.log(data);
+    }
+    if (data.menu === "Engineer") {
+      createEngineer();
+    }
+    if (data.menu === "Intern") {
+      createIntern();
+    }
+  });
+}
+
+createManager();
 
 // Generate an Engineer
 
-// function createEngineer(data) {
-//   console.log(data)
-//   const teamEng = new Engineer(data.name, data.email, data.id, data.gitHub);
-//   team.push(teamEng);
-//   console.log(team);
-// }
+function createEngineer() {
+  inquirer.prompt(engineerQuestions).then((data) => {
+    const teamEng = new Engineer(data.name, data.email, data.id, data.gitHub);
+    team.push(teamEng);
+    console.log(team);
+    mainMenu();
+  });
+}
 
 // Generate an Intern
 
-// function createIntern(data) {
-//   console.log(data)
-//   const teamInt = new Intern(data.name, data.email, data.id, data.school);
-//   team.push(teamInt);
-//   console.log(team);
-// }
+function createIntern() {
+  inquirer.prompt(internQuestions).then((data) => {
+    const teamInt = new Intern(data.name, data.email, data.id, data.school);
+    team.push(teamInt);
+    console.log(team);
+    mainMenu();
+  });
+}
 
 // Function to create HTML file
-function writeToFile(data) {
-  console.log(data);
-  fs.writeFile("./dist/index.html", generate(data), (err) =>
-    err ? console.log(err) : console.log("Success!")
-  );
-}
+// function writeToFile(data) {
+//   console.log(data);
+//   fs.writeFile("./dist/index.html", generate(data), (err) =>
+//     err ? console.log(err) : console.log("Success!")
+//   );
+// }
