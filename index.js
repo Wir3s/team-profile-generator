@@ -3,6 +3,7 @@ const fs = require("fs");
 const Employee = require("./lib/employee");
 const Manager = require("./lib/manager");
 const Engineer = require("./lib/engineer");
+const Intern = require("./lib/intern");
 const generate = require("./src/sample");
 
 console.log(Employee);
@@ -24,16 +25,16 @@ const managerQuestions = [
     name: "email",
     message: "What is their email address?",
   },
-  {
-    type: "input",
-    name: "id",
-    message: "What is their ID number?",
-  },
-  {
-    type: "input",
-    name: "office",
-    message: "What is their office number?",
-  },
+  // {
+  //   type: "input",
+  //   name: "id",
+  //   message: "What is their ID number?",
+  // },
+  // {
+  //   type: "input",
+  //   name: "office",
+  //   message: "What is their office number?",
+  // },
 ];
 // Questions for main menu
 const menuQuestions = [
@@ -123,14 +124,17 @@ function createManager() {
 
 function mainMenu() {
   inquirer.prompt(menuQuestions).then((data) => {
-    if (data.menu === "Done") {
-      console.log(data);
-    }
-    if (data.menu === "Engineer") {
-      createEngineer();
-    }
-    if (data.menu === "Intern") {
-      createIntern();
+    switch (data.menu) {
+      case "Done":
+        console.log(data);
+        writeToFile(data);
+        break;
+      case "Engineer":
+        createEngineer();
+        break;
+      case "Intern":
+        createIntern();
+        break;
     }
   });
 }
@@ -160,9 +164,9 @@ function createIntern() {
 }
 
 // Function to create HTML file
-// function writeToFile(data) {
-//   console.log(data);
-//   fs.writeFile("./dist/index.html", generate(data), (err) =>
-//     err ? console.log(err) : console.log("Success!")
-//   );
-// }
+function writeToFile(data) {
+  console.log(data);
+  fs.writeFile("./dist/index.html", generate(data), (err) =>
+    err ? console.log(err) : console.log("Success!")
+  );
+}
