@@ -1,19 +1,24 @@
 function generateHtml(data) {
   console.log(data);
-  const findRole = data.filter(data.getRole());
-  switch (findRole) {
-    case "Manager":
-      generateManager(data);
-      break;
-    case "Engineer":
-      generateEngineer(data);
-      break;
-    case "Intern":
-      generateIntern(data);
-      break;
+  const findRole = data.map((employee) => employee.getRole());
+  for (let i = 0; i < findRole.length; i++) {
+    console.log("here is findRole[i], ", findRole[i]);
+    console.log(data[i]);
+    switch (findRole[i]) {
+      case "Manager":
+        generateManager(data[i]);
+        break;
+      case "Engineer":
+        generateEngineer(data[i]);
+        break;
+      case "Intern":
+        generateIntern(data[i]);
+        break;
+    }
   }
 
   function generateManager(data) {
+    console.log(data);
     return `<div class="card" style="width: 18rem;">
     <div class="card-body">
       <h5 class="card-title">Team Manager</h5>
@@ -26,7 +31,9 @@ function generateHtml(data) {
     </div>
   </div>`;
   }
+
   function generateIntern(data) {
+    console.log(data);
     return `<div class="card" style="width: 18rem;">
     <div class="card-body">
       <h5 class="card-title">Team Manager</h5>
@@ -39,7 +46,9 @@ function generateHtml(data) {
     </div>
   </div>`;
   }
+
   function generateEngineer(data) {
+    console.log(data);
     return `<div class="card" style="width: 18rem;">
     <div class="card-body">
       <h5 class="card-title">Team Manager</h5>
@@ -53,49 +62,6 @@ function generateHtml(data) {
   </div>`;
   }
 }
-
-// <!-- First Card -->
-
-// <!-- Second Card -->
-// <div class="card" style="width: 18rem;">
-//     <div class="card-body">
-//       <h5 class="card-title">Card title</h5>
-//       <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-//       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-//       <a href="#" class="card-link">Card link</a>
-//       <a href="#" class="card-link">Another link</a>
-//     </div>
-// </div>
-// <!-- Third Card -->
-// <div class="card" style="width: 18rem;">
-//     <div class="card-body">
-//       <h5 class="card-title">Card title</h5>
-//       <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-//       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-//       <a href="#" class="card-link">Card link</a>
-//       <a href="#" class="card-link">Another link</a>
-//     </div>
-// </div>
-// <!-- Fourth Card-->
-// <div class="card" style="width: 18rem;">
-//     <div class="card-body">
-//       <h5 class="card-title">Card title</h5>
-//       <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-//       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-//       <a href="#" class="card-link">Card link</a>
-//       <a href="#" class="card-link">Another link</a>
-//     </div>
-// </div>
-// <!-- Fifth Card -->
-// <div class="card" style="width: 18rem;">
-//     <div class="card-body">
-//       <h5 class="card-title">Card title</h5>
-//       <h6 class="card-subtitle mb-2 text-muted">Card subtitle</h6>
-//       <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-//       <a href="#" class="card-link">Card link</a>
-//       <a href="#" class="card-link">Another link</a>
-//     </div>
-// </div>
 
 module.exports = (data) => {
   return `<!DOCTYPE html>

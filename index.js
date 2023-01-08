@@ -25,16 +25,16 @@ const managerQuestions = [
     name: "email",
     message: "What is their email address?",
   },
-  // {
-  //   type: "input",
-  //   name: "id",
-  //   message: "What is their ID number?",
-  // },
-  // {
-  //   type: "input",
-  //   name: "office",
-  //   message: "What is their office number?",
-  // },
+  {
+    type: "input",
+    name: "id",
+    message: "What is their ID number?",
+  },
+  {
+    type: "input",
+    name: "office",
+    message: "What is their office number?",
+  },
 ];
 // Questions for main menu
 const menuQuestions = [
@@ -67,12 +67,6 @@ const engineerQuestions = [
     name: "gitHub",
     message: "What is their GitHub account name?",
   },
-  {
-    type: "list",
-    name: "menu",
-    choices: ["Engineer", "Intern", "Done"],
-    message: "Do you have another team member to add?",
-  },
 ];
 // Questions to create Intern
 const internQuestions = [
@@ -95,12 +89,6 @@ const internQuestions = [
     type: "input",
     name: "school",
     message: "What is the name of their school?",
-  },
-  {
-    type: "list",
-    name: "menu",
-    choices: ["Engineer", "Intern", "Done"],
-    message: "Do you have another team member to add?",
   },
 ];
 
