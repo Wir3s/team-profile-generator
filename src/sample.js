@@ -6,6 +6,7 @@ function generateHtml(data) {
   for (let i = 0; i < findRole.length; i++) {
     console.log("here is findRole[i], ", findRole[i]);
     console.log(data[i]);
+    console.log("here is builder", builder);
     switch (findRole[i]) {
       case "Manager":
         return generateManager(data[i]);
@@ -15,6 +16,7 @@ function generateHtml(data) {
         return generateIntern(data[i]);
     }
   }
+
   // if (findRole[i] === "Manager") {
   //   return generateManager(data[i]);
   // } else if (findRole[i] === "Engineer") {
