@@ -1,20 +1,26 @@
 function generateHtml(data) {
   console.log(data);
   const findRole = data.map((employee) => employee.getRole());
+  console.log("here is findRole", findRole);
+  console.log(findRole.length);
   for (let i = 0; i < findRole.length; i++) {
     console.log("here is findRole[i], ", findRole[i]);
     console.log(data[i]);
     switch (findRole[i]) {
       case "Manager":
-        generateManager(data[i]);
-        break;
+        return generateManager(data[i]);
       case "Engineer":
-        generateEngineer(data[i]);
-        break;
+        return generateEngineer(data[i]);
       case "Intern":
-        generateIntern(data[i]);
-        break;
+        return generateIntern(data[i]);
     }
+    // if (findRole[i] === "Manager") {
+    //   return generateManager(data[i]);
+    // } else if (findRole[i] === "Engineer") {
+    //   return generateEngineer(data[i]);
+    // } else if (findRole[i] === "Intern") {
+    //   return generateIntern(data[i]);
+    // }
   }
 
   function generateManager(data) {
@@ -23,10 +29,11 @@ function generateHtml(data) {
     <div class="card-body">
       <h5 class="card-title">Team Manager</h5>
       <h6 class="card-subtitle mb-2 text-muted">${data.getName()}</h6>
-      <p class="card-text">${data.getId()}
-      ${data.getOffNum()}
+      <p class="card-text">ID: ${data.getId()}
+
+     Office Number: ${data.getOffNum()}
       </p>
-      <a href="#" class="card-link">${data.getEmail()}</a>
+      <a href="mailto:${data.getEmail()}" class="card-link">Email:${data.getEmail()}</a>
       <a href="#" class="card-link">Another link</a>
     </div>
   </div>`;
@@ -36,13 +43,13 @@ function generateHtml(data) {
     console.log(data);
     return `<div class="card" style="width: 18rem;">
     <div class="card-body">
-      <h5 class="card-title">Team Manager</h5>
+      <h5 class="card-title">Intern</h5>
       <h6 class="card-subtitle mb-2 text-muted">${data.getName()}</h6>
-      <p class="card-text">${data.getId()}
-      ${data.getSchool()}
+      <p class="card-text">ID: ${data.getId()}
+
+      School: ${data.getSchool()}
       </p>
-      <a href="#" class="card-link">${data.getEmail()}</a>
-      <a href="#" class="card-link">Another link</a>
+      <a href="mailto:${data.getEmail()}" class="card-link">${data.getEmail()}</a>
     </div>
   </div>`;
   }
@@ -51,13 +58,13 @@ function generateHtml(data) {
     console.log(data);
     return `<div class="card" style="width: 18rem;">
     <div class="card-body">
-      <h5 class="card-title">Team Manager</h5>
+      <h5 class="card-title">Engineer</h5>
       <h6 class="card-subtitle mb-2 text-muted">${data.getName()}</h6>
-      <p class="card-text">${data.getId()}
-      ${data.getGitHub()}
+      <p class="card-text">ID: ${data.getId()}
+
+     GitHub: ${data.getGitHub()}
       </p>
-      <a href="#" class="card-link">${data.getEmail()}</a>
-      <a href="#" class="card-link">Another link</a>
+      <a href="mailto:${data.getEmail()}" class="card-link">${data.getEmail()}</a>
     </div>
   </div>`;
   }
@@ -76,6 +83,7 @@ module.exports = (data) => {
   <body>
     <div class = "container">
         <div class = "row">
+        <span class="text-bg-success p-3">Our Team</span>
         ${generateHtml(data)}
            
             
