@@ -14,14 +14,14 @@ function generateHtml(data) {
       case "Intern":
         return generateIntern(data[i]);
     }
-    // if (findRole[i] === "Manager") {
-    //   return generateManager(data[i]);
-    // } else if (findRole[i] === "Engineer") {
-    //   return generateEngineer(data[i]);
-    // } else if (findRole[i] === "Intern") {
-    //   return generateIntern(data[i]);
-    // }
   }
+  // if (findRole[i] === "Manager") {
+  //   return generateManager(data[i]);
+  // } else if (findRole[i] === "Engineer") {
+  //   return generateEngineer(data[i]);
+  // } else if (findRole[i] === "Intern") {
+  //   return generateIntern(data[i]);
+  // }
 
   function generateManager(data) {
     console.log(data);
