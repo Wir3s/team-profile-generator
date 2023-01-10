@@ -22,11 +22,9 @@ function generateHtml(data) {
       <h5 class="card-title">Team Manager</h5>
       <h6 class="card-subtitle mb-2 text-muted">${data.getName()}</h6>
       <p class="card-text">ID: ${data.getId()}
-
      Office Number: ${data.getOffNum()}
       </p>
-      <a href="mailto:${data.getEmail()}" class="card-link">Email:${data.getEmail()}</a>
-      <a href="#" class="card-link">Another link</a>
+      <a href="mailto:${data.getEmail()}" class="card-link">Email:${data.getEmail()}</a>\
     </div>
   </div>`;
   }

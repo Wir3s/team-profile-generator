@@ -6,9 +6,6 @@ const Engineer = require("./lib/engineer");
 const Intern = require("./lib/intern");
 const generate = require("./src/sample");
 
-console.log(Employee);
-console.log(Manager);
-
 const team = [];
 
 // Arrays of questions for user input
@@ -94,7 +91,6 @@ const internQuestions = [
     message: "What is the name of their school?",
   },
 ];
-
 
 // Generate a Manager
 function createManager() {
