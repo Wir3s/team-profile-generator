@@ -1,32 +1,22 @@
 function generateHtml(data) {
-  console.log(data);
   const findRole = data.map((employee) => employee.getRole());
-  console.log("here is findRole", findRole);
-  console.log(findRole.length);
+  let builder = "";
   for (let i = 0; i < findRole.length; i++) {
-    console.log("here is findRole[i], ", findRole[i]);
-    console.log(data[i]);
-    console.log("here is builder", builder);
     switch (findRole[i]) {
       case "Manager":
-        return generateManager(data[i]);
+        builder += generateManager(data[i]);
+        break;
       case "Engineer":
-        return generateEngineer(data[i]);
+        builder += generateEngineer(data[i]);
+        break;
       case "Intern":
-        return generateIntern(data[i]);
+        builder += generateIntern(data[i]);
+        break;
     }
   }
 
-  // if (findRole[i] === "Manager") {
-  //   return generateManager(data[i]);
-  // } else if (findRole[i] === "Engineer") {
-  //   return generateEngineer(data[i]);
-  // } else if (findRole[i] === "Intern") {
-  //   return generateIntern(data[i]);
-  // }
 
   function generateManager(data) {
-    console.log(data);
     return `<div class="card" style="width: 18rem;">
     <div class="card-body">
       <h5 class="card-title">Team Manager</h5>
@@ -42,7 +32,6 @@ function generateHtml(data) {
   }
 
   function generateIntern(data) {
-    console.log(data);
     return `<div class="card" style="width: 18rem;">
     <div class="card-body">
       <h5 class="card-title">Intern</h5>
@@ -57,7 +46,6 @@ function generateHtml(data) {
   }
 
   function generateEngineer(data) {
-    console.log(data);
     return `<div class="card" style="width: 18rem;">
     <div class="card-body">
       <h5 class="card-title">Engineer</h5>
@@ -70,6 +58,7 @@ function generateHtml(data) {
     </div>
   </div>`;
   }
+  return builder;
 }
 
 module.exports = (data) => {

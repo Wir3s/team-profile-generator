@@ -29,6 +29,7 @@ const managerQuestions = [
     type: "input",
     name: "id",
     message: "What is their ID number?",
+    validate: (val) => /[1-9]/gi.test(val),
   },
   {
     type: "input",
@@ -61,6 +62,7 @@ const engineerQuestions = [
     type: "input",
     name: "id",
     message: "What is their ID number?",
+    validate: (val) => /[1-9]/gi.test(val),
   },
   {
     type: "input",
@@ -84,6 +86,7 @@ const internQuestions = [
     type: "input",
     name: "id",
     message: "What is their ID number?",
+    validate: (val) => /[1-9]/gi.test(val),
   },
   {
     type: "input",
@@ -92,7 +95,6 @@ const internQuestions = [
   },
 ];
 
-// Function to map/filer responses, and determine roles?
 
 // Generate a Manager
 function createManager() {
@@ -103,18 +105,15 @@ function createManager() {
       data.id,
       data.office
     );
-    console.log(teamManager);
     team.push(teamManager);
-    console.log(team);
     mainMenu();
   });
 }
-
+// Main menu for prompts
 function mainMenu() {
   inquirer.prompt(menuQuestions).then((data) => {
     switch (data.menu) {
       case "Done":
-        console.log(data);
         writeToFile(team);
         break;
       case "Engineer":
@@ -133,7 +132,6 @@ function createEngineer() {
   inquirer.prompt(engineerQuestions).then((data) => {
     const teamEng = new Engineer(data.name, data.email, data.id, data.gitHub);
     team.push(teamEng);
-    console.log(team);
     mainMenu();
   });
 }
@@ -144,7 +142,6 @@ function createIntern() {
   inquirer.prompt(internQuestions).then((data) => {
     const teamInt = new Intern(data.name, data.email, data.id, data.school);
     team.push(teamInt);
-    console.log(team);
     mainMenu();
   });
 }
