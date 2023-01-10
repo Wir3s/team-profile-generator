@@ -18,15 +18,14 @@
 ## Usage
   It can be used by running 'node index.js' from the terminal.
   
-  ![Screenshot1](./images/readme-gen-sc1.png)
+  ![Screenshot1](./images/team-gen-sc1.png)
   
-  ![Screenshot2](./images/readme-gen-sc2.png)
 
 ## Contributing
   Any contribution suggestions are welcome.
 
 ## Tests
-  N/A
+  Jest was used for testing and will need to be installed. Run 'npm test' from the terminal to test. Four tests will run, employee.test.js, engineer.test.js, intern.test.js and manager.test.js. They will test that the constructors are working properly.
 
 ## Questions
   Wir3s  
