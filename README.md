@@ -20,6 +20,7 @@
   
   ![Screenshot1](./images/team-gen-sc1.png)
   
+  Link to video of application in action: ![video](https://drive.google.com/file/d/1heZTP5AvhwrJyCwY1SB-KLmm9m4WBCS2/view)
 
 ## Contributing
   Any contribution suggestions are welcome.
