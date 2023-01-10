@@ -20,7 +20,7 @@
   
   ![Screenshot1](./images/team-gen-sc1.png)
   
-  Link to video of application in action: ![video](https://drive.google.com/file/d/1heZTP5AvhwrJyCwY1SB-KLmm9m4WBCS2/view)
+  Link to video of application in action: <video src='[your URL here](https://drive.google.com/file/d/1heZTP5AvhwrJyCwY1SB-KLmm9m4WBCS2/view)' width=180/>
 
 ## Contributing
   Any contribution suggestions are welcome.
